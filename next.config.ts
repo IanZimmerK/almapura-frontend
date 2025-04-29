@@ -1,7 +1,18 @@
-import type { NextConfig } from "next";
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/producto',
+        destination: 'http://localhost:4000/producto', // ← Puerto real del backend
+      },
+    ]
+  },
+}
 
-const nextConfig: NextConfig = {
-  /* config options here */
+module.exports = {
+  images: {
+    domains: ['tudominio.com', 'res.cloudinary.com'], // Añade tus dominios
+  },
 };
-
-export default nextConfig;
