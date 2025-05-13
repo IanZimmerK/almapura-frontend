@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion"; 
-import { useProductos } from "@/app/hooks/useProductos";
+import { useProductos } from "@/app/api/hooks/useProductos";
 import { LoadingSkeleton } from "../Layouts/ui/Skeleton";
 
 // Animaciones predefinidas
@@ -59,7 +59,7 @@ const RecommendedProducts = () => {
         >
           {featuredProducts.map((producto) => (
             <motion.div
-              key={producto.id}
+              key={producto._id}
               variants={itemVariants}
               whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
               className="bg-white rounded-lg shadow-md overflow-hidden"
@@ -89,7 +89,7 @@ const RecommendedProducts = () => {
                     ${producto.precio.toFixed(2)}
                   </span>
                   <Link
-                    href={`/productos/${producto.id}`}
+                    href={`/productos/${producto._id}`}
                     className="text-sm bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
                   >
                     Ver más
